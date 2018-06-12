@@ -1,0 +1,38 @@
+ansible_ssh_host: 192.168.2.11 
+username: ali 
+password: gp36s8s8
+port: 830
+config:
+  configuration:
+    routing_instances:
+      instance:
+        - name: test
+          instance_type: 
+            virtual_router:
+    interfaces:
+      interface:
+      - name: ge-0/0/0
+        unit:
+          - name: 0
+            description : "0 subinterface"
+            family:
+              inet:
+                address:
+                  - name: 20.0.0.1/24
+                  - name: 20.0.10.1/24
+                  - name: 20.0.20.1/24 
+      - name: ge-0/0/1
+        unit:
+          - name: 0
+            description : "0 subinterface"
+            family:
+              inet:
+                address:
+                  - name: 10.0.0.1/24                                 
+      - name: fxp0
+        unit:
+          - name: 0
+            family:
+              inet:
+                address:
+                  - name: 192.168.2.11/24

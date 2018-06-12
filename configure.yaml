@@ -1,0 +1,13 @@
+- name: configureation via ydk
+  hosts: vSRX1
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: push config
+      ydk_module:
+        username="{{ username }}"
+        password="{{ password }}"
+        config="{{ config }}"
+        hostname="{{  ansible_ssh_host }}"
+        action=sync_to
+

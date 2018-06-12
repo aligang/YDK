@@ -1,0 +1,79 @@
+ansible_ssh_host: 192.168.2.11 
+username: ali 
+password: gp36s8s8
+port: 830
+config:
+  configuration:
+    routing_instances:
+      instance:
+        - name: test
+          instance_type: 
+            virtual_router:
+    protocols:
+      ospf3:
+        area:
+          - name: 0.0.0.0
+            interface:
+              - name: ge-0/0/0
+    interfaces:                
+      - name: ge-0/0/0
+        unit:
+          - name: 0
+            description : "0 subinterface"
+            family:
+              inet:
+                address:
+                  - name: 20.0.0.1/24
+                  - name: 20.0.20.1/24                               
+      - name: fxp0
+        unit:
+          - name: 0
+            family:
+              inet:
+                address:
+                  - name: 192.168.2.11/24
+    system:
+      root_authentication:
+        encrypted_password: "$5$YAiiNLbm$lYG22ClfJUSVPGnO0LGBBADirBXN4cM0sWsMIMhknW2"
+      login:
+        user:
+          - name: ali
+            uid: 2000
+            class: super-user
+            authentication:
+              encrypted_password: "$5$gL1mGrYR$5qStMqtW4bKQUN1.L0FvnrJHB74hBZbySTV/x8kWQ9."
+              ssh_rsa:
+                - name: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCOVtb0JX+QkUgIOZlNixOXG1J9RkBW+dOAcw48YEK73lN/FyEaF1qwIr19NhMyh2wGIVhSI9V1sGV8CZEeGm7Wrgndj45gkq1FFxIvjIO/GWniz3UFGiedNDQp64p+C75TTfYHOartp1S3Sguzdhb4yPEaiUAzjMp+SZ6hwT7s9mrOB2+c59GH17e3OoqTdGY8Pgq+vmeisWqmkPwSNq1bAuNLL3mIErIet6Tm1yDx5dnAp6vP41Shx8ss/cDwRmCZf9HwCW82i2SiOwbj/2Md0Ac2WSEVqH12S8mMRDpomUV/vVuSLBqF4DH/NkKsxYvHP8Az8gSB4ysjrSh5a3z"
+          - name: test-user  
+            uid: 2001
+            class: super-user
+            authentication:
+              encrypted_password: "$5$gL1mGrYR$5qStMqtW4bKQUN1.L0FvnrJHB74hBZbySTV/x8kWQ9."
+              ssh_rsa:
+                - name: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCOVtb0JX+QkUgIOZlNixOXG1J9RkBW+dOAcw48YEK73lN/FyEaF1qwIr19NhMyh2wGIVhSI9V1sGV8CZEeGm7Wrgndj45gkq1FFxIvjIO/GWniz3UFGiedNDQp64p+C75TTfYHOartp1S3Sguzdhb4yPEaiUAzjMp+SZ6hwT7s9mrOB2+c59GH17e3OoqTdGY8Pgq+vmeisWqmkPwSNq1bAuNLL3mIErIet6Tm1yDx5dnAp6vP41Shx8ss/cDwRmCZf9HwCW82i2SiOwbj/2Md0Ac2WSEVqH12S8mMRDpomUV/vVuSLBqF4DH/NkKsxYvHP8Az8gSB4ysjrSh5a3z"
+          - name: test-user-2  
+            uid: 2002
+            class: super-user
+            authentication:
+              encrypted_password: "$5$gL1mGrYR$5qStMqtW4bKQUN1.L0FvnrJHB74hBZbySTV/x8kWQ9."
+              ssh_rsa:
+                - name: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCOVtb0JX+QkUgIOZlNixOXG1J9RkBW+dOAcw48YEK73lN/FyEaF1qwIr19NhMyh2wGIVhSI9V1sGV8CZEeGm7Wrgndj45gkq1FFxIvjIO/GWniz3UFGiedNDQp64p+C75TTfYHOartp1S3Sguzdhb4yPEaiUAzjMp+SZ6hwT7s9mrOB2+c59GH17e3OoqTdGY8Pgq+vmeisWqmkPwSNq1bAuNLL3mIErIet6Tm1yDx5dnAp6vP41Shx8ss/cDwRmCZf9HwCW82i2SiOwbj/2Md0Ac2WSEVqH12S8mMRDpomUV/vVuSLBqF4DH/NkKsxYvHP8Az8gSB4ysjrSh5a3z"
+      services:
+        ssh:
+        netconf:
+          ssh:
+            port: 830
+          rfc_compliant: empty
+          traceoptions:
+            file:
+              filename: "netconf.log"
+              size: "3m"
+              files: 10
+              world_readable: empty
+            flag:
+              - name:
+                  all:
+
+
+
+
